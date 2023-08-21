@@ -1,0 +1,132 @@
+#include "Clock.h"
+
+void printMenu() {
+
+    std::cout << “3. Add second\n”;
+
+              << “2. Add minute\n”;
+
+              << “1. Add hour\n”;
+
+		    << “4. Exit Program\n”;
+}
+
+int UserInput() {
+
+    int choice;
+
+    std::cin >> choice;
+
+    return choice;
+
+}
+
+
+int main() {
+
+    Clock clock1(0, 0, 0);
+
+    Clock clock2(0, 0, 0);
+
+    int choice;
+
+
+{
+
+        std::cout << "Clock 1: " << clock1.getTime12HourFormat() << " / " << clock1.getTime24HourFormat() << std::endl;
+
+        std::cout << "Clock 2: " << clock2.getTime12HourFormat() << " / " << clock2.getTime24HourFormat() << std::endl;
+
+        printMenu();
+
+        choice = UserInput();
+
+
+	if (choice = 3)
+ {
+
+            clock1.addSecond();
+
+            clock2.addSecond();
+
+        } 
+	else if (choice = 2) 
+{
+Clock::Clock(int hours, int minutes, int seconds)
+
+    : hours(hours), minutes(minutes), seconds(seconds) {}
+
+
+void Clock::addSecond() 
+{
+
+    seconds++;
+
+    if (seconds >= 60) 
+{
+
+        seconds = 0;
+
+        addMinute();
+
+    }
+
+
+void Clock::addMinute() 
+{
+
+    minutes++;
+
+    if (minutes >= 60) 
+{
+
+        minutes = 0;
+
+      }
+  addHour();
+
+    }
+
+
+void Clock::addHour() {
+
+    hours = (hours + 1) % 24;
+
+}
+
+
+std::string Clock::getTime12HourFormat() 
+{
+
+    int hours12 = (hours % 12 == 0) ? 12 : hours % 12;
+
+    std::string = (hours >= 12) ? "PM" : "AM";
+
+    std::string;
+
+    << formatTwoDigits(hours12) << ":"
+
+    << formatTwoDigits(minutes) << ":"
+
+    << formatTwoDigits(seconds);
+
+    return ();
+
+}
+
+
+std::string Clock::getTime24HourFormat() 
+{
+
+    std::string;
+
+      << formatTwoDigits(hours) << ":"
+
+       << formatTwoDigits(minutes) << ":"
+
+       << formatTwoDigits(seconds);
+
+    return ();
+
+}
+
